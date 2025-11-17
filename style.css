@@ -1,0 +1,368 @@
+/* -------------------- 🎨 Réinitialisation et Palette de Couleurs -------------------- */
+:root {
+    --color-primary: #1e88e5;       /* Bleu Électrique - Utilisé pour l'action et les titres */
+    --color-secondary: #0d47a1;     /* Bleu Foncé - Utilisé pour le footer et les accents */
+    --color-background: #f0f4f8;    /* Gris Bleu très clair pour le fond */
+    --color-text: #333333;          /* Noir/Gris pour le texte */
+    --font-heading: 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'Arial', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-background);
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* -------------------- 🖼️ En-tête (Header) et Photo -------------------- */
+header {
+    background: linear-gradient(135deg, #ffffff, var(--color-background)); /* Dégradé subtil */
+    padding: 60px 20px 30px 20px;
+    border-bottom: 5px solid var(--color-primary);
+}
+
+h1 {
+    font-family: var(--font-heading);
+    color: var(--color-secondary);
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+h2 {
+    color: var(--color-primary);
+    font-size: 1.4em;
+    font-weight: 500;
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.profile-photo {
+    width: 180px; /* Photo plus grande */
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: 20px;
+    border: 6px solid #fff; /* Bordure blanche pour la mettre en valeur */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre plus marquée */
+}
+
+/* -------------------- 🧱 Contenu principal (Main) -------------------- */
+main {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    margin-bottom: 50px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08); /* Ombre légère et moderne */
+    text-align: left;
+}
+
+#introduction {
+    text-align: center;
+    font-size: 1.1em;
+}
+
+#introduction p {
+    max-width: 800px;
+    margin: 15px auto;
+}
+
+/* -------------------- 🗃️ Cartes de Projets (Grille Flexbox) -------------------- */
+#projets h2 {
+    text-align: center;
+    color: var(--color-secondary);
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+#projets-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.projet-card {
+    flex: 0 1 350px; /* Taille fixe */
+    padding: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.projet-card:hover {
+    transform: translateY(-8px) scale(1.02); /* Effet d'élévation plus dynamique */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.projet-card h3 {
+    color: var(--color-primary);
+    border-bottom: 2px dotted #e0e0e0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.projet-card a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.projet-card a:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+/* -------------------- ⬇️ Footer (Pied de page) - AFFINITÉ ACCRUE -------------------- */
+footer {
+    /* Utilisation d'un bleu nuit pour la profondeur */
+    background-color: #2c3e50; 
+    color: #fff;
+    padding: 40px 0; /* Plus de padding pour plus d'espace */
+    margin-top: 50px;
+}
+
+footer h2 {
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+footer a {
+    /* Utilisation de la couleur primaire pour les liens (bleu électrique) */
+    color: var(--color-primary); 
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #ffffff; /* Les liens deviennent blancs au survol */
+    text-decoration: underline;
+}
+
+/* Vous pouvez ajouter une ligne de séparation subtile si vous le souhaitez */
+footer a[href^="mailto"] {
+    display: inline-block;
+    padding-bottom: 5px;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.4); 
+}
+
+/* -------------------- 📱 Responsive Design pour Mobiles -------------------- */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.1em;
+    }
+
+    /* Les cartes de projets s'étendent à 100% sur mobile */
+    .projet-card {
+        flex: 0 1 100%;
+    }
+}
+/* ================================================= */
+/* === Styles Spécifiques aux Études de Cas (harona.html, bumpguide.html, etc.) === */
+/* ================================================= */
+
+/* Lien de retour */
+.back-link {
+    display: block;
+    width: fit-content;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 600;
+    margin: 0 auto 30px 5%; 
+    padding: 10px 0;
+    transition: color 0.3s;
+    font-size: 0.95em;
+}
+
+.back-link:hover {
+    color: var(--color-secondary);
+    text-decoration: underline;
+}
+
+/* Conteneurs principaux */
+.context, .case-study-content {
+    max-width: 900px;
+    margin: 0 auto 50px auto;
+    padding: 30px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Méta-données (Rôle, Outils, Période) */
+.meta-data {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 25px 0;
+    font-size: 0.9em;
+    padding: 15px;
+    background-color: var(--color-background); 
+    border-radius: 8px;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.meta-data p strong {
+    color: var(--color-secondary);
+}
+
+.cta-link {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 1.1em;
+    padding: 10px;
+    background-color: #e3f2fd;
+    border-radius: 4px;
+}
+
+/* Titres de section (1., 2., 3.) */
+.case-study-content h3 {
+    color: var(--color-secondary);
+    font-size: 1.8em;
+    margin-top: 50px;
+    margin-bottom: 25px;
+    border-left: 6px solid var(--color-primary);
+    padding-left: 20px;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.process-step h4 {
+    color: var(--color-primary);
+    margin-top: 35px;
+    font-size: 1.3em;
+    border-bottom: 1px dashed #e0e0e0;
+    padding-bottom: 5px;
+}
+
+/* Images et Légendes */
+.full-width-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin: 25px 0 15px 0;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border: 1px solid #ddd;
+}
+
+.caption {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #888;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+/* 🖼️ Galerie de Visuels (Canva) - AJUSTEMENT CLASSE */
+.visual-gallery {
+    display: flex;
+    justify-content: center; /* Centrer le bloc de la galerie */
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 25px 0;
+    padding: 15px;
+    background-color: #fcfcfc; /* Fond très clair pour démarquer la section */
+    border-radius: 8px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.03); /* Effet de bordure intérieur */
+}
+
+.gallery-img {
+    /* 3 images par ligne */
+    width: 30%; 
+    max-height: 300px; /* Limiter la hauteur pour éviter un effet trop imposant */
+    height: auto;
+    border-radius: 6px;
+    /* Ombre subtile et bordure propre */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s, box-shadow 0.3s;
+    object-fit: contain; /* S'assurer que l'image est entière, sans la couper */
+}
+
+.gallery-img:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Style de liste (Bénéfices) */
+.case-study-content ul {
+    list-style-type: none;
+    margin: 20px 0 30px 0;
+    padding-left: 0;
+}
+
+.case-study-content ul li {
+    margin-bottom: 12px;
+    padding-left: 30px;
+    position: relative;
+    font-size: 1.05em;
+}
+
+/* Puce personnalisée (check mark) */
+.case-study-content ul li::before {
+    content: '✓'; 
+    color: var(--color-primary);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+}
+
+/* -------------------- Responsive Design pour Mobiles -------------------- */
+@media (max-width: 768px) {
+    .meta-data {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-left: 10px;
+        text-align: left;
+    }
+    .visual-gallery {
+        padding: 10px;
+    }
+    .gallery-img {
+        width: 100%; /* Une seule image par ligne sur mobile */
+        max-height: none; 
+    }
+    .case-study-content {
+        padding: 20px 15px;
+    }
+    .back-link {
+        margin: 0 auto 30px 15px;
+    }
+}
