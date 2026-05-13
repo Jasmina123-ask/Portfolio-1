@@ -4,63 +4,228 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Étude de Cas | Marketing Visuel & Conversion</title>
-    <link rel="stylesheet" href="style.css"> 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #c5a059; 
+            --bg-light: #fafaf9;
+            --text-muted: #6b7280;
+            --glass: rgba(255, 255, 255, 0.8);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+        }
+
+        /* --- NAVIGATION --- */
+        .nav-header {
+            padding: 20px 10%;
+            display: flex;
+            justify-content: flex-start;
+            position: sticky;
+            top: 0;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .back-link:hover { color: var(--accent); transform: translateX(-5px); }
+
+        /* --- HERO SECTION --- */
+        header.main-hero {
+            padding: 80px 10% 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h2.subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* --- META DATA BADGES --- */
+        .meta-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .meta-badge {
+            background: white;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        section {
+            padding: 40px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin: 20px 0 10px;
+            color: var(--accent);
+        }
+
+        ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* --- GALLERY --- */
+        .visual-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0 20px;
+        }
+
+        .gallery-img {
+            width: 100%;
+            border-radius: 15px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .gallery-img:hover { transform: scale(1.03); }
+
+        .caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 60px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            header.main-hero { padding: 40px 5%; }
+            .content-card { padding: 25px; }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="back-link">← Retour au Portfolio</a>
+    <nav class="nav-header">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au Portfolio</a>
+    </nav>
+
+    <header class="main-hero">
         <h1>PROJET 1 : Design Marketing pour une Marque d'Huiles Essentielles et d'Épices</h1>
-        <h2>Création de visuels d'engagement et de conversion pour les réseaux sociaux.</h2>
+        <h2 class="subtitle">Création de visuels d'engagement et de conversion pour les réseaux sociaux.</h2>
+        
+        <div class="meta-container">
+            <div class="meta-badge"><strong>Mon Rôle :</strong> Designer de Contenu et Spécialiste Canva</div>
+            <div class="meta-badge"><strong>Outil Principal :</strong> Canva Pro</div>
+            <div class="meta-badge"><strong>Secteur :</strong> Bien-être, E-commerce</div>
+        </div>
     </header>
 
     <main>
-        
-        <section class="context">
-            <h2>Contexte et Objectifs</h2>
-            <div class="meta-data">
-                <p><strong>Mon Rôle :</strong> Designer de Contenu et Spécialiste Canva</p>
-                <p><strong>Outil Principal :</strong> Canva Pro</p>
-                <p><strong>Secteur :</strong> Bien-être, E-commerce (Huiles Essentielles & Épices)</p>
+        <section>
+            <div class="content-card">
+                <h3>Contexte et Objectifs</h3>
+                <p>Ce projet est la preuve directe de ma capacité à adapter mon travail à un contexte purement commercial et orienté vers la vente. L'objectif était de créer des visuels pour les réseaux sociaux qui attirent l'attention des clients, éduquent sur les produits et stimulent l'achat, en gérant deux gammes de produits distinctes (luxe/bien-être et alimentaire).</p>
+                <br>
+                <p>Ceci est la démonstration de ma compréhension des mécanismes d'attraction client par le contenu.</p>
             </div>
-            <p>
-                Ce projet est la preuve directe de ma capacité à adapter mon travail à un contexte purement commercial et orienté vers la vente. L'objectif était de créer des visuels pour les réseaux sociaux qui attirent l'attention des clients, éduquent sur les produits et stimulent l'achat, en gérant deux gammes de produits distinctes (luxe/bien-être et alimentaire).
-            </p>
-            <p>
-                Ceci est la démonstration de ma compréhension des mécanismes d'attraction client par le contenu.
-            </p>
-        </section>
 
-        <section class="case-study-content">
-            
             <h3>1. L'Adaptation au Marché Commercial Bipolaire</h3>
-            
-            <p>
-                J'ai dû concevoir deux approches visuelles distinctes pour la même marque :
-            </p>
+            <p>J'ai dû concevoir deux approches visuelles distinctes pour la même marque :</p>
             <ul>
                 <li>Gamme Huiles Essentielles : Design élégant, basé sur la sérénité et le luxe (attrait émotionnel).</li>
                 <li>Gamme Épices : Design coloré, basé sur la gourmandise, la qualité alimentaire et les recettes (attrait pratique).</li>
             </ul>
 
-            <div class="process-step">
-                <h4>a. Stratégie de Marque Visuelle (Canva)</h4>
-                <p>
-                    J'ai ajusté le style pour correspondre au branding du client en utilisant :
-                    <br>→ Des palettes de couleurs naturelles pour l'huile essentielle.
-                    <br>→ Des palettes plus vives et saturées pour les épices.
-                    L'objectif était de positionner la marque comme une référence de confiance et de bien-être dans ses deux catégories.
-                </p>
-            </div>
-
-
-            <h3>2. Conception de Visuels Optimisés pour la Conversion</h3>
-
-            <p>
-                Mon travail se concentre sur l'efficacité du contenu, en concevant des publications qui ne sont pas seulement belles, mais qui génèrent de l'action.
+            <h4>a. Stratégie de Marque Visuelle (Canva)</h4>
+            <p>J'ai ajusté le style pour correspondre au branding du client en utilisant :
+                <br>→ Des palettes de couleurs naturelles pour l'huile essentielle.
+                <br>→ Des palettes plus vives et saturées pour les épices.
+                <br>L'objectif était de positionner la marque comme une référence de confiance et de bien-être dans ses deux catégories.
             </p>
 
-            <div class="process-step">
+            <div style="margin-top: 60px;">
+                <h3>2. Conception de Visuels Optimisés pour la Conversion</h3>
+                <p>Mon travail se concentre sur l'efficacité du contenu, en concevant des publications qui ne sont pas seulement belles, mais qui génèrent de l'action.</p>
+                
                 <h4>a. Les Types de Contenu Créés</h4>
                 <ul>
                     <li>Contenu Éducatif (Épices) : Visuels de recettes rapides ou d'astuces d'utilisation pour augmenter l'engagement.</li>
@@ -68,44 +233,30 @@
                     <li>Preuve Sociale : Mise en forme graphique des témoignages pour inspirer confiance.</li>
                 </ul>
             </div>
-            
+
             <div class="visual-gallery">
-                <img src="Huiles essentielles.png" alt="Visuel Canva promotionnel pour les huiles essentielles Mad'Arom" class="gallery-img">
-                
-                <img src="saveurMada.png" alt="Visuel Canva pour les épices Mad'Arom mettant en avant les saveurs" class="gallery-img">
-                
-                <img src="Made in Madagascar.png" alt="Visuel Canva sur la fierté d'origine des produits Mad'Arom" class="gallery-img">
+                <img src="Huiles essentielles.png" alt="Huiles essentielles" class="gallery-img">
+                <img src="saveurMada.png" alt="Saveurs Mada" class="gallery-img">
+                <img src="Made in Madagascar.png" alt="Made in Madagascar" class="gallery-img">
             </div>
-            <p class="caption">
-                Sélection de publications créées sur Canva. Ces visuels démontrent la capacité à produire un contenu de marque adapté à la fois au secteur du bien-être et au secteur alimentaire.
-            </p>
+            <p class="caption">Sélection de publications créées sur Canva. Ces visuels démontrent la capacité à produire un contenu de marque adapté à la fois au secteur du bien-être et au secteur alimentaire.</p>
 
-
-            <h3>3. Conclusion : Un Design qui Vend et Attire.</h3>
-            
-            <ul>
-                <li><strong>Maîtrise de Canva :</strong> Permet la production rapide de contenu brandé et de haute qualité.</li>
-                <li><strong>Design Axé sur l'Objectif :</strong> Chaque visuel est pensé pour déclencher une action spécifique (achat, engagement, clic) plutôt que d'être purement décoratif.</li>
-                <li><strong>Polyvalence Commerciale :</strong> Capacité à créer des designs efficaces pour différentes gammes de produits (bien-être vs. alimentaire), prouvant que je peux m'adapter à toutes les niches.</li>
-            </ul>
+            <div class="content-card" style="border-left: 5px solid var(--accent);">
+                <h3>3. Conclusion : Un Design qui Vend et Attire.</h3>
+                <ul>
+                    <li><strong>Maîtrise de Canva :</strong> Permet la production rapide de contenu brandé et de haute qualité.</li>
+                    <li><strong>Design Axé sur l'Objectif :</strong> Chaque visuel est pensé pour déclencher une action spécifique (achat, engagement, clic) plutôt que d'être purement décoratif.</li>
+                    <li><strong>Polyvalence Commerciale :</strong> Capacité à créer des designs efficaces pour différentes gammes de produits (bien-être vs. alimentaire), prouvant que je peux m'adapter à toutes les niches.</li>
+                </ul>
+            </div>
         </section>
-
     </main>
 
-    <footer style="text-align: center;">
-        <h2>Contactez-moi</h2>
-        <p>
-            Email : <a href="mailto:jasminaan2005@gmail.com">jasminaan2005@gmail.com</a>
-        </p>
-        <p>
-            GitHub : <a href="https://github.com/Jasmina123" target="_blank">Jasmina123</a>
-        </p>
-        <p>
-            LinkedIn : <a href="https://www.linkedin.com/in/mialitiana-andrianomenjanahary-aa3a46319/?trk=opento_sprofile_details" target="_blank">Mialitiana ANDRIANOMENJANAHARY</a> 
-            </p>
-        <p>
-            Téléphone (WhatsApp) : +261 32 60 092 64
-        </p>
+    <footer>
+        <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px;">Contactez-moi</h2>
+        <p>Email : <a href="mailto:jasminaan2005@gmail.com">jasminaan2005@gmail.com</a></p>
+        <p>LinkedIn : <a href="https://www.linkedin.com/..." target="_blank">Mialitiana ANDRIANOMENJANAHARY</a></p>
+        <p>WhatsApp : +261 32 60 092 64</p>
     </footer>
 
 </body>

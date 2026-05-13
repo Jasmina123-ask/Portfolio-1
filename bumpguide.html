@@ -4,36 +4,210 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Étude de Cas | BumpGuide</title>
-    <link rel="stylesheet" href="style.css"> 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #c5a059; 
+            --bg-light: #fafaf9;
+            --text-muted: #6b7280;
+            --glass: rgba(255, 255, 255, 0.8);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+        }
+
+        /* --- NAVIGATION --- */
+        .nav-header {
+            padding: 20px 10%;
+            display: flex;
+            justify-content: flex-start;
+            position: sticky;
+            top: 0;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .back-link:hover { color: var(--accent); transform: translateX(-5px); }
+
+        /* --- HERO SECTION --- */
+        header.main-hero {
+            padding: 80px 10% 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h2.subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* --- META DATA BADGES --- */
+        .meta-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .meta-badge {
+            background: white;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        section {
+            padding: 40px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin: 20px 0 10px;
+            color: var(--accent);
+        }
+
+        ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* --- IMAGES --- */
+        .full-width-img {
+            width: 100%;
+            border-radius: 20px;
+            margin: 30px 0 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+
+        .full-width-img:hover { transform: translateY(-5px); }
+
+        .caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 50px;
+            padding: 0 10%;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        footer h2 { font-family: 'Playfair Display', serif; margin-bottom: 25px; }
+        footer p { margin-bottom: 12px; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            header.main-hero { padding: 40px 5%; }
+            .content-card { padding: 25px; }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="back-link">← Retour au Portfolio</a>
+    <nav class="nav-header">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au Portfolio</a>
+    </nav>
+
+    <header class="main-hero">
         <h1>PROJET 3 : BumpGuide - Application Web de Suivi de Grossesse</h1>
-        <h2>Conception UI/UX et Développement Full-Stack d'un outil de gestion de données.</h2>
+        <h2 class="subtitle">Conception UI/UX et Développement Full-Stack d'un outil de gestion de données.</h2>
+        
+        <div class="meta-container">
+            <div class="meta-badge"><strong>Mon Rôle :</strong> Développeur Full-Stack & Designer UI</div>
+            <div class="meta-badge"><strong>Stack :</strong> Python, Flask, SQLAlchemy</div>
+            <div class="meta-badge"><strong>Contexte :</strong> Projet Universitaire (2024-2025)</div>
+        </div>
     </header>
 
     <main>
-        
-        <section class="context">
-            <h2>Contexte et Objectifs</h2>
-            <div class="meta-data">
-                <p><strong>Mon Rôle :</strong> Développeur Full-Stack et Designer d'Interface Utilisateur (UI)</p>
-                <p><strong>Outils :</strong> Python, Framework Flask, ORM SQLAlchemy, HTML/CSS, Bootstrap</p>
-                <p><strong>Type :</strong> Mini-Projet Universitaire (2024-2025)</p>
+        <section>
+            <div class="content-card">
+                <h3>Contexte et Objectifs</h3>
+                <p>
+                    L'objectif était de construire une application web complète, de la gestion de la base de données à l'interface utilisateur. BumpGuide est un outil de suivi qui doit être fiable, simple et rassurant pour l'utilisateur. Ce projet démontre ma capacité à gérer la logique back-end (Flask/SQLAlchemy) tout en garantissant une expérience utilisateur de qualité (UI/UX).
+                </p>
             </div>
-            <p>
-                L'objectif était de construire une application web complète, de la gestion de la base de données à l'interface utilisateur. BumpGuide est un outil de suivi qui doit être fiable, simple et rassurant pour l'utilisateur. Ce projet démontre ma capacité à gérer la logique back-end (Flask/SQLAlchemy) tout en garantissant une expérience utilisateur de qualité (UI/UX).
-            </p>
-        </section>
 
-        <section class="case-study-content">
-            
             <h3>1. Le Défi de l'Expérience Utilisateur (UX)</h3>
-    
             <p>
-                Le principal défi UX était de traduire des données potentiellement complexes (suivi de santé, données de croissance) en un tableau de bord clair, intuitif et visuellement engageant. L'utilisateur doit pouvoir comprendre son suivi en un coup d'œil, sans être submergé par les chiffres.
+                Le principal défi UX était de traduire des données potentiellement complexes (suivi de santé, données de croissance) en un tableau de bord clair, intuitif et visuellement engageant. L'utilisateur doit pouvoir comprendre son suivi en un coup d'œil.
             </p>
 
             <img src="Capture3.JPG" alt="Page d'accueil de l'application BumpGuide" class="full-width-img">
@@ -41,69 +215,52 @@
                 La page d'accueil de BumpGuide, conçue pour rassurer l'utilisateur et séparer clairement les espaces (Patient/Médecin).
             </p>
 
-            <div class="process-step">
+            <div style="margin-top: 40px;">
                 <h4>a. Design d'Interface (UI) et Hiérarchie Visuelle</h4>
                 <p>
-                    J'ai utilisé Bootstrap pour construire une interface mobile-first. L'accent a été mis sur la hiérarchisation claire des données médicales afin qu'elles soient simples à interpréter pour les utilisateurs non-professionnels.
+                    J'ai utilisé Bootstrap pour construire une interface mobile-first. L'accent a été mis sur la hiérarchisation claire des données médicales afin qu'elles soient simples à interpréter.
                 </p>
                 <ul>
                     <li>L'utilisation de cartes (cards) et de graphiques simples pour présenter l'évolution du poids et de la tension.</li>
                     <li>Un chemin de navigation clair entre l'enregistrement, la consultation et la modification des données.</li>
                 </ul>
                 
-                <img src="Capture4.JPG" alt="Tableau de bord de suivi du poids et de la tension sur BumpGuide" class="full-width-img">
+                <img src="Capture4.JPG" alt="Tableau de bord de suivi sur BumpGuide" class="full-width-img">
                 <p class="caption">
-                    Tableau de bord des suivis du poids et de la tension : utilisation de graphiques et de codes couleurs pour la clarté, un élément clé pour l'interprétation des données par l'utilisateur.
+                    Tableau de bord des suivis : utilisation de graphiques et de codes couleurs pour la clarté, un élément clé pour l'interprétation des données.
                 </p>
             </div>
 
+            <div style="margin-top: 60px;">
+                <h3>2. La Solution Technique (Développement Full-Stack)</h3>
+                <p>
+                    Ce projet a nécessité une maîtrise du développement Full-Stack pour gérer le cycle de vie complet de l'application, du serveur à la base de données.
+                </p>
 
-            <h3>2. La Solution Technique (Développement Full-Stack)</h3>
-
-            <p>
-                Ce projet a nécessité une maîtrise du développement Full-Stack pour gérer le cycle de vie complet de l'application, du serveur à la base de données.
-            </p>
-
-            <div class="process-step">
                 <h4>a. Le Backend Solide (Python et Flask)</h4>
                 <p>
-                    Le moteur de l'application est basé sur le framework Flask (Python). J'ai développé toute la logique de l'application, y compris :
+                    Le moteur de l'application est basé sur le framework Flask (Python). J'ai développé toute la logique de l'application, y compris la gestion des sessions utilisateur et le routage des requêtes HTTP.
                 </p>
-                <ul>
-                    <li>Gestion des sessions utilisateur (connexion, déconnexion).</li>
-                    <li>Routage et gestion des requêtes HTTP.</li>
-                </ul>
             </div>
 
-
-            <h3>3. Conclusion : La Conception de Systèmes Fonctionnels</h3>
-            
-            <p>
-                BumpGuide est une preuve solide de ma capacité à :
-            </p>
-            <ul>
-                <li><strong>Concevoir une UX/UI efficace :</strong> Rendre l'information complexe simple et digeste, compétence essentielle pour les plateformes d'accompagnement de coachs.</li>
-                <li><strong>Développer un système Full-Stack :</strong> Bâtir des outils autonomes et robustes de A à Z (Backend + Frontend).</li>
-                <li><strong>Gérer la logique de données :</strong> Organiser l'information pour qu'elle soit fiable, permettant aux experts de prendre des décisions éclairées.</li>
-            </ul>
+            <div class="content-card" style="border-left: 5px solid var(--accent); margin-top: 60px;">
+                <h3>3. Conclusion : La Conception de Systèmes Fonctionnels</h3>
+                <p>BumpGuide est une preuve solide de ma capacité à :</p>
+                <ul>
+                    <li><strong>Concevoir une UX/UI efficace :</strong> Rendre l'information complexe simple et digeste.</li>
+                    <li><strong>Développer un système Full-Stack :</strong> Bâtir des outils autonomes et robustes de A à Z (Backend + Frontend).</li>
+                    <li><strong>Gérer la logique de données :</strong> Organiser l'information pour qu'elle soit fiable et exploitable.</li>
+                </ul>
+            </div>
         </section>
-
     </main>
 
-    <footer style="text-align: center;">
+    <footer>
         <h2>Contactez-moi</h2>
-        <p>
-            Email : <a href="mailto:jasminaan2005@gmail.com">jasminaan2005@gmail.com</a>
-        </p>
-        <p>
-            GitHub : <a href="https://github.com/Jasmina123" target="_blank">Jasmina123</a>
-        </p>
-        <p>
-            LinkedIn : <a href="https://www.linkedin.com/in/mialitiana-andrianomenjanahary-aa3a46319/?trk=opento_sprofile_details" target="_blank">Mialitiana ANDRIANOMENJANAHARY</a> 
-            </p>
-        <p>
-            Téléphone (WhatsApp) : +261 32 60 092 64
-        </p>
+        <p>Email : <a href="mailto:jasminaan2005@gmail.com">jasminaan2005@gmail.com</a></p>
+        <p>GitHub : <a href="https://github.com/Jasmina123" target="_blank">Jasmina123</a></p>
+        <p>LinkedIn : <a href="https://www.linkedin.com/in/mialitiana-andrianomenjanahary-aa3a46319/" target="_blank">Mialitiana ANDRIANOMENJANAHARY</a></p>
+        <p>WhatsApp : +261 32 60 092 64</p>
     </footer>
 
 </body>

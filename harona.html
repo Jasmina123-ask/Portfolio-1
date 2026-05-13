@@ -4,42 +4,234 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Étude de Cas | ONG HARONA</title>
-    <link rel="stylesheet" href="style.css"> 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <!-- Icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #1a1a1a;
+            --accent: #c5a059; 
+            --bg-light: #fafaf9;
+            --text-muted: #6b7280;
+            --glass: rgba(255, 255, 255, 0.8);
+            --transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            line-height: 1.7;
+        }
+
+        /* --- NAVIGATION --- */
+        .nav-header {
+            padding: 20px 10%;
+            display: flex;
+            justify-content: flex-start;
+            position: sticky;
+            top: 0;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .back-link {
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .back-link:hover { color: var(--accent); transform: translateX(-5px); }
+
+        /* --- HERO SECTION --- */
+        header.main-hero {
+            padding: 80px 10% 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h2.subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* --- META DATA BADGES --- */
+        .meta-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 60px;
+        }
+
+        .meta-badge {
+            background: white;
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid #e5e7eb;
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        section {
+            padding: 40px 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-card {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: var(--primary);
+        }
+
+        h4 {
+            font-size: 1.1rem;
+            margin: 20px 0 10px;
+            color: var(--accent);
+        }
+
+        ul {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* --- GALLERY & IMAGES --- */
+        .visual-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 40px 0 20px;
+        }
+
+        .full-width-img, .gallery-img {
+            width: 100%;
+            border-radius: 15px;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: block;
+        }
+
+        .gallery-img:hover { transform: scale(1.03); }
+
+        .caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 15px;
+            margin-bottom: 40px;
+        }
+
+        .cta-link {
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .cta-link a {
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        footer h2 { font-family: 'Playfair Display', serif; margin-bottom: 20px; }
+        footer p { margin-bottom: 10px; }
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            header.main-hero { padding: 40px 5%; }
+            .content-card { padding: 25px; }
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <a href="index.html" class="back-link">← Retour au Portfolio</a>
+    <nav class="nav-header">
+        <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i> Retour au Portfolio</a>
+    </nav>
+
+    <header class="main-hero">
         <h1>PROJET 2 : Création du Site Officiel et Stratégie Visuelle de l'ONG HARONA</h1>
-        <h2>Concevoir la crédibilité et l'engagement d'une marque associative.</h2>
+        <h2 class="subtitle">Concevoir la crédibilité et l'engagement d'une marque associative.</h2>
+        
+        <div class="meta-container">
+            <div class="meta-badge"><strong>Mon Rôle :</strong> Développeur Web et Designer de Contenu</div>
+            <div class="meta-badge"><strong>Outils :</strong> Canva, HTML/CSS/JS, Vercel</div>
+            <div class="meta-badge"><strong>Période :</strong> Septembre - Octobre 2025</div>
+        </div>
     </header>
 
     <main>
-        
-        <section class="context">
-            <h2>Contexte et Objectifs</h2>
-            <div class="meta-data">
-                <p><strong>Mon Rôle :</strong> Développeur Web et Designer de Contenu</p>
-                <p><strong>Outils :</strong> Canva, HTML/CSS/JavaScript, Vercel</p>
-                <p><strong>Période :</strong> 01/09/2025 au 31/10/2025</p>
+        <section>
+            <div class="content-card">
+                <h3>Contexte et Objectifs</h3>
+                <p>
+                    L'objectif principal était de doter l'ONG d'une présence en ligne professionnelle et d'assurer une communication cohérente sur tous les supports. Ce projet démontre ma capacité à gérer à la fois le développement technique et la production de contenus visuels de marque.
+                </p>
+                <p class="cta-link">
+                    Voir le site en direct : <a href="https://ongharona.vercel.app/" target="_blank">https://ongharona.vercel.app/</a>
+                </p>
             </div>
-            <p>
-                L'objectif principal était de doter l'ONG d'une présence en ligne professionnelle et d'assurer une communication cohérente sur tous les supports. Ce projet démontre ma capacité à gérer à la fois le développement technique et la production de contenus visuels de marque.
-            </p>
-            <p class="cta-link">
-                Voir le site en direct : <a href="https://ongharona.vercel.app/" target="_blank">https://ongharona.vercel.app/</a>
-            </p>
-        </section>
 
-        <section class="case-study-content">
-            
             <h3>1. Développement et Intégration Visuelle (Site Web)</h3>
-            
             <p>
                 J'ai codé la plateforme officielle de l'ONG de manière autonome en utilisant HTML/CSS/JavaScript. Ce développement a impliqué l'intégration soignée des visuels de la marque pour garantir un aspect professionnel, essentiel pour l'autorité et la crédibilité.
             </p>
 
-            <div class="process-step">
+            <div style="margin-top: 40px;">
                 <h4>a. Le Résultat Visuel et Technique</h4>
                 <img src="Capture.JPG" alt="Bannière d'accueil du site ONG HARONA" class="full-width-img">
                 <p class="caption">
@@ -55,49 +247,39 @@
                 </p>
             </div>
 
-
-            <h3>2. Le Design pour l'Engagement (Canva - Réseaux Sociaux)</h3>
-
-            <p>
-                En parallèle, j'ai utilisé Canva pour créer une série de visuels pour les réseaux sociaux de l'ONG. Cette production régulière assure une communication active et homogène en ligne, cruciale pour l'engagement.
-            </p>
-
-            <div class="visual-gallery">
-                <img src="placeholder-harona-social-3.png" alt="Exemple de visuel de publication Canva pour l'ONG HARONA" class="gallery-img">               
-                <img src="placeholder-harona-social-1.png" alt="Exemple de visuel de publication Canva pour l'ONG HARONA" class="gallery-img">                
-                <img src="placeholder-harona-social-2.png" alt="Exemple de visuel de publication Canva pour l'ONG HARONA" class="gallery-img">
-                <p class="caption">
-                    Sélection de visuels créés sur Canva pour les réseaux.
+            <div style="margin-top: 60px;">
+                <h3>2. Le Design pour l'Engagement (Canva - Réseaux Sociaux)</h3>
+                <p>
+                    En parallèle, j'ai utilisé Canva pour créer une série de visuels pour les réseaux sociaux de l'ONG. Cette production régulière assure une communication active et homogène en ligne, cruciale pour l'engagement.
                 </p>
+
+                <div class="visual-gallery">
+                    <img src="placeholder-harona-social-3.png" alt="Exemple de visuel de publication Canva" class="gallery-img">               
+                    <img src="placeholder-harona-social-1.png" alt="Exemple de visuel de publication Canva" class="gallery-img">                
+                    <img src="placeholder-harona-social-2.png" alt="Exemple de visuel de publication Canva" class="gallery-img">
+                </div>
+                <p class="caption">Sélection de visuels créés sur Canva pour les réseaux.</p>
             </div>
 
-            <h3>3. Conclusion : Un atout pour l'attraction client</h3>
-            
-            <p>
-                Ce projet complet (Développement Web + Production Visuelle) illustre ma capacité à livrer des solutions qui inspirent confiance et facilitent la communication.
-            </p>
-            <ul>
-                <li><strong>Un Branding Cohérent :</strong> Le site et les réseaux sociaux sont alignés, renforçant l'autorité de l'expert.</li>
-                <li><strong>Efficacité du Contenu :</strong> Je peux concevoir rapidement des visuels d'engagement (grâce à Canva) qui permettent d'attirer l'audience sans avoir recours à une prospection manuelle excessive.</li>
-            </ul>
+            <div class="content-card" style="border-left: 5px solid var(--accent); margin-top: 60px;">
+                <h3>3. Conclusion : Un atout pour l'attraction client</h3>
+                <p>
+                    Ce projet complet (Développement Web + Production Visuelle) illustre ma capacité à livrer des solutions qui inspirent confiance et facilitent la communication.
+                </p>
+                <ul>
+                    <li><strong>Un Branding Cohérent :</strong> Le site et les réseaux sociaux sont alignés, renforçant l'autorité de l'expert.</li>
+                    <li><strong>Efficacité du Contenu :</strong> Conception rapide de visuels d'engagement qui permettent d'attirer l'audience sans prospection excessive.</li>
+                </ul>
+            </div>
         </section>
-
     </main>
 
-    <footer style="text-align: center;">
+    <footer>
         <h2>Contactez-moi</h2>
-        <p>
-            Email : <a href="mailto:jasminaan2005@gmail.com">jasminaan2005@gmail.com</a>
-        </p>
-        <p>
-            GitHub : <a href="https://github.com/Jasmina123" target="_blank">Jasmina123</a>
-        </p>
-        <p>
-            LinkedIn : <a href="https://www.linkedin.com/in/mialitiana-andrianomenjanahary-aa3a46319/?trk=opento_sprofile_details" target="_blank">Mialitiana ANDRIANOMENJANAHARY</a> 
-            </p>
-        <p>
-            Téléphone (WhatsApp) : +261 32 60 092 64
-        </p>
+        <p>Email : <a href="mailto:jasminaan2005@gmail.com">jasminaan2005@gmail.com</a></p>
+        <p>GitHub : <a href="https://github.com/Jasmina123" target="_blank">Jasmina123</a></p>
+        <p>LinkedIn : <a href="https://www.linkedin.com/in/mialitiana-andrianomenjanahary-aa3a46319/" target="_blank">Mialitiana ANDRIANOMENJANAHARY</a></p>
+        <p>WhatsApp : +261 32 60 092 64</p>
     </footer>
 
 </body>
